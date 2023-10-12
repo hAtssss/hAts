@@ -1,0 +1,130 @@
+// Place all the styles related to the toppages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+   .img-frame{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin: 0 auto;
+    }
+    .img-01, .img-02, .img-03{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+    .img-01{
+    background-image: url(img-01.jpg);
+    animation: slide-animation-01 24s infinite;
+    }
+    .img-02{
+    background-image: url(img-02.jpg);
+    animation: slide-animation-02 24s infinite;
+    }
+    .img-03{
+    background-image: url(img-03.jpg);
+    animation: slide-animation-03 24s infinite;
+    }
+
+    .div p {
+      position: absolute;/*絶対配置*/
+      color: white;/*文字は白に*/
+      top: 50px;
+      left: 50px;
+      }
+    @keyframes slide-animation-01 {
+    0% {opacity: 1; transform: scale(1.0);}
+    30% {opacity: 1;}
+    40% {opacity: 0; transform: scale(1.15);}
+    90% {opacity: 0}
+    100% {opacity: 1; transform: scale(1.0);}
+    }
+    @keyframes slide-animation-02 {
+      0% {opacity: 0;}
+      30% {opacity: 0; transform: scale(1.1);}
+      40% {opacity: 1;}
+      60% {opacity: 1;}
+      70% {opacity: 0; transform: scale(1.0);}
+      100% {opacity: 0;}
+    }
+    @keyframes slide-animation-03 {
+    0% {opacity: 0;}
+    60% {opacity: 0;  transform: scale(1.0);}
+    70% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0; transform: scale(1.1);}
+    }
+
+    body {
+        font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+          Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+      }
+      .toppage-header {
+        position: absolute;
+       top: 400px;
+        background-color: #fafbfc;
+        height: 80px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        right: 0;
+        left: 0;
+      }
+      toppage-header a {
+        color: rgb(6, 5, 5); 
+        padding: 15px;
+        text-decoration: none; 
+      }
+      toppage-header h2 {
+        color: rgb(6, 5, 5);
+        margin-left: 20px;
+        margin-top: 0%;
+      }
+      toppage-header-list {
+        display: flex;
+        align-items: center;
+      }
+      toppage-header ul {
+        display: flex;
+      }
+      toppage-header li {
+        list-style: none;
+        margin-right: 40px;
+      }
+
+      toppage-header a:hover{
+        background-color:#928e8e;
+        }
+    
+
+    .toppages-container{
+        width: 400px;
+        height: 100px;
+        top: 550px;
+        padding: 40px;
+        margin: 0 auto;
+        border: 2px solid #0a0a0a
+
+    }
+
+    .osirase{
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    .toppage-list{
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+
+
+    

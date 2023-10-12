@@ -1,0 +1,98 @@
+<h2>時間割</h2>
+<table class="jikan">
+  <tr>
+  <th>授業時間</th>
+    <td>月曜日~金曜日</td>
+    <th>授業時間</th>
+    <td>土曜日・日曜日</td>
+  </tr>
+  <tr>
+  <th><div style="display:inline-block; _display: inline;">1</div>ー16:20~17:10</th>
+    <td>50分</td>
+    <th><div style="display:inline-block; _display: inline;">1</div>ー12:20~14:00</th>
+    <td>100分</td>
+  </tr>
+  <tr>
+  <th><div style="display:inline-block; _display: inline;">2</div>ー17:15~18:05</th>
+    <td>50分</td>
+    <th><div style="display:inline-block; _display: inline;">2</div>ー14:20~16:00</th>
+    <td>100分</td>
+  </tr>
+  <tr>
+  <th><div style="display:inline-block; _display: inline;">3</div>ー18:10~19:50</th>
+    <td>100分</td>
+    <th><div style="display:inline-block; _display: inline;">3</div>ー16:20~18:00</th>
+    <td>100分</td>
+  </tr>
+  <tr>
+  <th><div style="display:inline-block; _display: inline;">4</div>ー20:00~21:40</th>
+    <td>100分</td>
+    <th><div style="display:inline-block; _display: inline;">4</div>ー18:10~19:50</th>
+    <td>100分</td>
+  </tr>
+  <tr>
+  <th></th>
+    <td></td>
+    <th><div style="display:inline-block; _display: inline;">5</div>ー20:00~21:40</th>
+    <td>100分</td>
+  </tr>
+  
+</table>
+
+<h2 class="heading-015">月謝</h2>
+
+<table class="course">
+ <tr>
+  <th></th>
+  <th colspan="2">小学生(通常コース)</th>
+  <th colspan="2">小学生(受験コース)<div>中学生・高校生・浪人生</div></th>
+  
+  </tr>
+ <tr>
+  <td>通学可能な曜日</td>
+  <td colspan="2">月曜～金曜</td>
+  <td colspan="2">全日可</td>
+ </tr>
+ <tr>
+  <td>通学可能な時間帯</td>
+  <td colspan="2">上記時間割における1.2</td>
+  <td colspan="2">全時間帯選択可</td>
+ </tr>
+ <tr>
+  <td>授業数</td>
+  <td>一コマ</td>
+  <td>二コマ以上</td>
+  <td>一コマ</td>
+  <td>二コマ以上</td>
+ </tr>
+ <tr>
+  <td>月謝<div>[税込価格]</div></td>
+  <td>21000円<div>[23100円]</div></td>
+  <td>月+8500円<div>[月+9350円]</div></td>
+  <td>25000円<div>[27500円]</td>
+  <td>月+12500円<div>[月+13750円]</div></td>
+</table>
+
+
+
+<% if user_signed_in? && current_user.admin == true %>
+<%= link_to "新規投稿へ", new_course_path %>
+<% end %>
+<div class="courses-container">
+  <% @courses.each do |t| %>
+    <div class="course">
+      <%= t.body %>
+   
+    </div>
+    <% if user_signed_in? && current_user.admin == true %>
+    <%= link_to "編集する", edit_course_path(t.id) %>
+    <%= button_to "削除する", course_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"buttonkirai" %>
+<% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+<% end %>

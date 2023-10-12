@@ -1,0 +1,38 @@
+<div class="img-frame">
+
+ <div class="img-01">
+ <p>成央学院</p>
+ </div>
+ <div class="img-02">
+ <p>成央学院</p>
+ </div>
+ <div class="img-03">
+ <p>成央学院</p>
+ </div>
+</div>
+
+
+
+
+<h2 class="osirase">お知らせ</h2>
+<div class="toppages-container">
+  <% if user_signed_in? && current_user.admin == true %>
+      <%= link_to "新規投稿へ", new_toppage_path %>
+  <% end %>
+  <% @toppages.each do |t| %>
+    <div class="toppage">
+      <%= t.body %>
+      
+    </div>
+    <% if user_signed_in? && current_user.admin == true %>
+    <%= link_to "編集する", edit_toppage_path(t.id) %>
+    <%= button_to "削除する", toppage_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"buttonkirai" %>
+<% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+<% end %>

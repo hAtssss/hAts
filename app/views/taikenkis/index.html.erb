@@ -1,0 +1,23 @@
+<h1>自分の題名</h1>
+<h3>一覧ページ</h3>
+<% if user_signed_in? && current_user.admin == true %>
+<%= link_to "新規投稿へ", new_taikenki_path %>
+<% end %>
+<div class="taikenkis-container">
+  <% @taikenkis.each do |t| %>
+    <div class="taikenki">
+      <%= t.body %>
+      
+    </div>
+    <% if user_signed_in? && current_user.admin == true %>
+    <%= link_to "編集する", edit_taikenki_path(t.id) %>
+    <%= button_to "削除する", taikenki_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"buttonkirai" %>
+<% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+<% end %>

@@ -1,0 +1,13 @@
+
+<% if current_user.admin == true %>
+<%= form_for @toppage do |f| %>
+    <div class="field">
+    <%= f.label :body  %>
+    <%= f.text_area :body, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+<% end %>
+
+<%= link_to "一覧に戻る", toppages_path %>

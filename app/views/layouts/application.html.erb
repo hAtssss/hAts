@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HAts</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+  <h2>047-465-1108</h2>
+  <div class="header-list">
+  <ul>
+    <li><%= link_to "特徴",tamago_tokutyou_path %></li>
+    <li><%= link_to "時間割・月謝",courses_path %></li>
+    <li><%= link_to "Q&A",tamago_situmon_path %></li>
+    <li><%= link_to "合格実績",taikenkis_path %></li>
+  </div>
+</header>
+<main>
+
+  <%= yield %>
+
+</main>
+<div class="toppage-list">
+<ul>
+  <li><%= link_to "トップページへ",toppages_path %></li>
+</div>
+<footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+  
+</html>

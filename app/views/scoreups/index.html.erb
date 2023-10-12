@@ -1,0 +1,24 @@
+
+<% if user_signed_in? && current_user.admin == true %>
+<%= link_to "新規投稿へ", new_scoreup_path %>
+<% end %>
+<div class="scoreups-container">
+  <% @scoreups.each do |t| %>
+    <div class="scoreup">
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <%= t.body %>
+    
+    </div>
+    <% if user_signed_in? && current_user.admin == true %>
+    <%= link_to "編集する", edit_scoreup_path(t.id) %>
+    <%= button_to "削除する", scoreup_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"buttonkirai" %>
+<% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+<% end %>
+

@@ -1,0 +1,15 @@
+h1>(自分の題名)</h1>
+<h3>新規投稿ページ</h3>
+<% if current_user.admin == true %>
+<%= form_for @taikenki do |f| %>
+    <div class="field">
+    <%= f.label :body  %>
+    <%= f.text_area :body, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+<% end %>
+
+
+<%= link_to "一覧に戻る", taikenkis_path %>

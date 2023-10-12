@@ -1,0 +1,2 @@
+class Taikenki < ApplicationRecord
+end

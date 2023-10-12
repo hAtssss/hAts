@@ -1,0 +1,2 @@
+module ScoreupsHelper
+end
